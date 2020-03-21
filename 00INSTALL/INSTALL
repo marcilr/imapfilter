@@ -16,6 +16,50 @@ Linux malachite 4.19.0-6-amd64 #1 SMP Debian 4.19.67-2+deb10u2 \
 (2019-11-11) x86_64 GNU/Linux
 $
 
+
+3. Create initial ~/.imapfilter/config.lua 
+configuration file with:
+
+$ cp ../conf/config.lua ~/.imapfilter/
+
+$ ls ~/.imapfilter/config.lua 
+/home/marcilr/.imapfilter/config.lua
+
+$ cat ~/.imapfilter/config.lua 
+--[[
+config.lua
+Created Sat 21 Mar 2020 03:20:48 PM AKDT
+Copyright (C) 2020 by Raymond E. Marcil <marcilr@gmail.com>
+--]]
+
+--[[
+Example config.lua configuration:
+
+myaccount = IMAP {
+    server = 'imap.mail.server',
+    username = 'me',
+    password = 'secret',
+    ssl = 'ssl3'
+}
+
+--1.3 – Some Lexical Conventions
+  https://www.lua.org/pil/1.3.html
+
+--]]
+
+NOTE: Above config.lua is just a stubbed out
+      example.  i.e. Not configured yet.
+
+
+2. Create imapfilter configuration directory
+$HOME/.imapfilter/config.lua:
+
+$ mkdir /home/marcilr/.imapfilter
+$ ls /home/marcilr/.imapfilter
+
+
+1. Install imapfilter package:
+
 # aptitude install imapfilter
 The following NEW packages will be installed:
   imapfilter 
