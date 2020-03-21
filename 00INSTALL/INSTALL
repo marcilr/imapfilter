@@ -1,0 +1,44 @@
+INSTALL
+Created Sat 21 Mar 2020 12:27:53 PM AKDT
+Copyright (C) 2020 by Raymond E. Marcil <marcilr@gmail.com>
+
+
+Installation of imapfilter on Debian 
+
+
+Sat 21 Mar 2020 12:27:53 PM AKDT
+================================
+Need to settle up with Linode so installed imapfilter on
+local Debian malachite workstation:
+
+$ uname -a
+Linux malachite 4.19.0-6-amd64 #1 SMP Debian 4.19.67-2+deb10u2 \
+(2019-11-11) x86_64 GNU/Linux
+$
+
+# aptitude install imapfilter
+The following NEW packages will be installed:
+  imapfilter 
+0 packages upgraded, 1 newly installed, 0 to remove and 66 not upgraded.
+Need to get 65.4 kB of archives. After unpacking 232 kB will be used.
+Get: 1 http://deb.debian.org/debian buster/main amd64 imapfilter \
+amd64 1:2.6.12-1 [65.4 kB]
+Fetched 65.4 kB in 1s (119 kB/s)      
+sh: 0: getcwd() failed: No such file or directory
+sh: 0: getcwd() failed: No such file or directory
+sh: 0: getcwd() failed: No such file or directory
+Selecting previously unselected package imapfilter.
+(Reading database ... 282101 files and directories currently installed.)
+Preparing to unpack .../imapfilter_1%3a2.6.12-1_amd64.deb ...
+Unpacking imapfilter (1:2.6.12-1) ...
+Setting up imapfilter (1:2.6.12-1) ...
+Processing triggers for man-db (2.8.5-2) ...
+                                         
+# type imapfilter
+imapfilter is /usr/bin/imapfilter
+#
+
+Looks good.
+
+Need to configure.
+
