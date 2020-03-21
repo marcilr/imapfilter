@@ -17,6 +17,15 @@ Linux malachite 4.19.0-6-amd64 #1 SMP Debian 4.19.67-2+deb10u2 \
 $
 
 
+4. Run initial test with non-configured
+~/.imapfilter/config.lua:
+
+$ imapfilter
+$
+
+Very good.  Nothing configured yet.
+
+
 3. Create initial ~/.imapfilter/config.lua 
 configuration file with:
 
