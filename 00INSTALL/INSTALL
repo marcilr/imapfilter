@@ -17,6 +17,17 @@ Linux malachite 4.19.0-6-amd64 #1 SMP Debian 4.19.67-2+deb10u2 \
 $
 
 
+5. Configure the ~/.imapfilter/config.lua
+with actual values:
+
+myaccount = IMAP {
+    server = 'imap.mail.server',   <=== Configure
+    username = 'me',               <=== Configure
+    password = 'secret',           <=== Configure
+    ssl = 'ssl3'
+}
+
+
 4. Run initial test with non-configured
 ~/.imapfilter/config.lua:
 
