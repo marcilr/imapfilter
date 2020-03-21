@@ -5,6 +5,11 @@ Copyright (C) 2020 by Raymond E. Marcil <marcilr@gmail.com>
 
 Filelist
 ========
+comments.txt
+  1.3 – Some Lexical Conventions
+  Has Lua comment details
+  https://www.lua.org/pil/1.3.html
+
 config.lua
   $HOME/.imapfilter/config.lua
   imapfilter configruation file
