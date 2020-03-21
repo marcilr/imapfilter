@@ -21,6 +21,7 @@ $
 configuration file with:
 
 $ cp ../conf/config.lua ~/.imapfilter/
+$ chmod 600 ~/.imapfilter/config.lua
 
 $ ls ~/.imapfilter/config.lua 
 /home/marcilr/.imapfilter/config.lua
