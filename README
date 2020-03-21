@@ -5,6 +5,9 @@ Copyright (C) 2020 by Raymond E. Marcil <marcilr@gmail.com>
 
 Filelist
 ========
+00INSTALL/
+  Installation of imapfilter on malachite workstation
+
 imapfilter.txt
   IMAPFilter is a mail filtering utility.  It connects to
   remote mail servers using the Internet Message Access Protocol
@@ -20,4 +23,4 @@ imapfilter.txt
 
 links.txt
   IMAPFilter related links
-\
+
