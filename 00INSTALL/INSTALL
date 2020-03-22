@@ -75,8 +75,8 @@ NOTE: Above config.lua is just a stubbed out
 2. Create imapfilter configuration directory
 $HOME/.imapfilter/config.lua:
 
-$ mkdir /home/marcilr/.imapfilter
-$ ls /home/marcilr/.imapfilter
+$ mkdir -p ~/.imapfilter
+$ ls ~/.imapfilter
 
 
 1. Install imapfilter package:
