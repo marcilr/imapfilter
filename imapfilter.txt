@@ -15,7 +15,13 @@ IMAPFilter uses the Lua programming language as a configuration
 and extension language.
 
 
-Links
-=====
-IMAPFilter
-http://github.com/lefcha/imapfilter
+<h2>IMAPFilter related links</h2>
+
+<p>
+IMAPFilter<br>
+http://github.com/lefcha/imapfilter<br>
+
+<p>
+imapfilter_config(5) - Linux man page<br>
+https://linux.die.net/man/5/imapfilter_config<br>
+
