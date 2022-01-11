@@ -1,0 +1,57 @@
+test.txt
+Created Tue 04 Jan 2022 07:54:49 AM AKST
+Copyright (C) 2022 by Raymond E. Marcil <marcilr@gmail.com>
+
+
+Tue 04 Jan 2022 07:54:49 AM AKST
+================================
+Test from malachite Debian 10.11 buster
+
+$ type imapfilter
+imapfilter is hashed (/usr/bin/imapfilter)
+
+$ imapfilter -V
+IMAPFilter 2.6.12  Copyright (c) 2001-2018 Eleftherios Chatzimparmpas
+
+$ imapfilter -v
+S (3): * OK Gimap ready for requests from 24.237.217.241 na7mb239170323pjb
+C (3): 1000 CAPABILITY
+S (3): 1000 OK Thats all she wrote! na7mb239170323pjb
+C (3): 1001 LOGIN "marcilr@gmail.com" *
+S (3): 1001 OK marcilr@gmail.com authenticated (Success)
+C (3): 1002 CAPABILITY
+S (3): 1002 OK Success
+C (3): 1003 NAMESPACE
+S (3): 1003 OK Success
+C (3): 1004 SELECT "INBOX"
+S (3): 1004 OK [READ-WRITE] INBOX selected. (Success)
+C (3): 1005 UID SEARCH ALL
+^Cimapfilter: killed by signal 2
+$
+
+The test appears to be running.  However, there are
+no frules under the ~/.imapfilter/config.lua
+configuration file yet.
+
+
+imapfilter options
+==================
+...
+-c configfile
+        Path to the configuration file to read, or the ‘-’ character to 
+        read the configuration from the standard input stream.  The default 
+        is $HOME/.imapfilter/config.lua.
+
+-d debugfile
+        File that contains debugging information about the full 
+        communication with the server, along with other inner workings'
+        details.
+...
+-V      Displays version and copyright information.
+
+
+-v      Enables printing of some brief details of the communication
+        with the server.
+
+
+--man imapfilter
