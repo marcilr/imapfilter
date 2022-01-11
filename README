@@ -11,7 +11,7 @@ Filelist
 conf/
   Configuration
 
-imapfilter.txt
+imapfilter.html
   IMAPFilter is a mail filtering utility.  It connects to
   remote mail servers using the Internet Message Access Protocol
   (IMAP), sends searching queries to the server and processes
@@ -24,6 +24,5 @@ imapfilter.txt
   and extension language.
   --http://github.com/lefcha/imapfilter
 
-links.txt
-  IMAPFilter related links
+  Has IMAPFilter related links
 
