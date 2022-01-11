@@ -8,3 +8,5 @@ Filelist
 test.txt
   Testing of Imapfilter 
 
+test-20220111-01.txt
+  Command line test of imapfilter
