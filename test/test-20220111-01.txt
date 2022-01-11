@@ -1,0 +1,28 @@
+test-20220111-01.txt
+Created Tue 11 Jan 2022 08:33:05 AM AKST
+Copyright (C) 2022 by Raymond E. Marcil <marcilr@gmail.com>
+
+
+Command line imapfilter test:
+
+
+$ imapfilter -v
+S (3): * OK Gimap ready for requests from 24.237.217.241 d13mb67571486pjx
+C (3): 1000 CAPABILITY
+S (3): 1000 OK Thats all she wrote! d13mb67571486pjx
+C (3): 1001 LOGIN "marcilr@gmail.com" *
+S (3): 1001 OK marcilr@gmail.com authenticated (Success)
+C (3): 1002 CAPABILITY
+S (3): 1002 OK Success
+C (3): 1003 NAMESPACE
+S (3): 1003 OK Success
+C (3): 1004 SELECT "INBOX"
+S (3): 1004 OK [READ-WRITE] INBOX selected. (Success)
+C (3): 1005 UID SEARCH ALL
+^Cimapfilter: killed by signal 2
+$
+
+
+No rules configured under ~/.imapfilter/config.lua yet.
+Broke out of imapfilter with ctrl-C
+
