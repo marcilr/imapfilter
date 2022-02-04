@@ -12,6 +12,177 @@ Working on configuration of filtering for gmail in:
 
 ~/.imapfilter/config.lua
 
+1:55PM Updated with:
+print "Deleting specific messages from gmail INBOX..."
 
+-- Delete specific messages
+print "Deleting: Market Rebellion <alerts@marketrebellion.com> messages"
+messages = gmail["[Gmail]/All Mail"]:contain_field("sender", "alerts@marketrebellion.com") * gmail["[Gmail]/All Mail"]
+messages:move_messages(gmail["[Gmail]/Trash"])
+
+-- Empty the trash folder
+print("Emptying trash folder.")
+messages2 = gmail["[Gmail]/Trash"]:select_all()
+messages2:delete_messages()
+
+$ imapfilter -v -d ~/imapfilter.txt
+S (4): * OK Gimap ready for requests from 24.237.217.241 gx7mb71088231pjb
+C (4): 1000 NOOP
+S (4): 1000 OK Nothing Accomplished. gx7mb71088231pjb
+C (4): 1001 CAPABILITY
+S (4): 1001 OK Thats all she wrote! gx7mb71088231pjb
+C (4): 1002 LOGIN "marcilr@gmail.com" *
+S (4): 1002 OK marcilr@gmail.com authenticated (Success)
+C (4): 1003 CAPABILITY
+S (4): 1003 OK Success
+C (4): 1004 NAMESPACE
+S (4): 1004 OK Success
+Deleting specific messages from gmail INBOX...
+Deleting: Market Rebellion <alerts@marketrebellion.com> messages
+C (4): 1005 SELECT "[Gmail]/All Mail"
+S (4): 1005 OK [READ-WRITE] [Gmail]/All Mail selected. (Success)
+C (4): 1006 UID SEARCH ALL HEADER sender "alerts@marketrebellion.com"
+S (4): 1006 OK SEARCH completed (Success)
+Emptying trash folder.
+C (4): 1007 SELECT "[Gmail]/Trash"
+S (4): 1007 OK [READ-WRITE] [Gmail]/Trash selected. (Success)
+C (4): 1008 UID SEARCH ALL
+S (4): 1008 OK SEARCH completed (Success)
+C (4): 1009 UID STORE 136204:136412 +FLAGS.SILENT (\Deleted)
+S (4): 1009 OK Success
+C (4): 100A EXPUNGE
+S (4): 100A OK Success
+209 messages deleted in marcilr@gmail.com@imap.gmail.com/[Gmail]/Trash.
+C (4): 100B LOGOUT
+S (4): 100B OK 73 good day (Success)
+$ 
+
+Took a while but did finish successfully.
+
+
+1:48PM Updated with:
+-- Delete specific messages
+print "Deleting: Market Rebellion <alerts@marketrebellion.com> messages"
+messages = gmail["[Gmail]/All Mail"]:contain_field("sender", "alerts@marketrebellion.com") * gmail["[Gmail]/All Mail"]
+messages:move_messages(gmail["[Gmail]/Trash"])
+
+-- Empty the trash folder
+print("Emptying trash folder.")
+messages2 = account1["[Gmail]/Trash"]:select_all()
+messages2:delete_messages()
+
+$ imapfilter -v
+S (3): * OK Gimap ready for requests from 24.237.217.241 kb6mb61014784pjb
+C (3): 1000 CAPABILITY
+S (3): 1000 OK Thats all she wrote! kb6mb61014784pjb
+C (3): 1001 LOGIN "marcilr@gmail.com" *
+S (3): 1001 OK marcilr@gmail.com authenticated (Success)
+C (3): 1002 CAPABILITY
+S (3): 1002 OK Success
+C (3): 1003 NAMESPACE
+S (3): 1003 OK Success
+Deleting specific messages from gmail INBOX...
+Deleting: Market Rebellion <alerts@marketrebellion.com> messages
+C (3): 1004 SELECT "[Gmail]/All Mail"
+S (3): 1004 OK [READ-WRITE] [Gmail]/All Mail selected. (Success)
+C (3): 1005 UID SEARCH ALL HEADER sender "alerts@marketrebellion.com"
+
+
+1:44PM Updated with:
+print "Deleting: Market Rebellion <alerts@marketrebellion.com> messages"
+messages = gmail["[Gmail]/All Mail"]:contain_field("sender", "alerts@marketrebellion.com") * gmail["[Gmail]/All Mail"]
+messages:move_messages(gmail["[Gmail]/Trash"])
+
+$ imapfilter -v
+S (3): * OK Gimap ready for requests from 24.237.217.241 w12mb161384151pjq
+C (3): 1000 CAPABILITY
+S (3): 1000 OK Thats all she wrote! w12mb161384151pjq
+C (3): 1001 LOGIN "marcilr@gmail.com" *
+S (3): 1001 OK marcilr@gmail.com authenticated (Success)
+C (3): 1002 CAPABILITY
+S (3): 1002 OK Success
+C (3): 1003 NAMESPACE
+S (3): 1003 OK Success
+Deleting specific messages from gmail INBOX...
+Deleting: Market Rebellion <alerts@marketrebellion.com> messages
+C (3): 1004 SELECT "[Gmail]/All Mail"
+S (3): 1004 OK [READ-WRITE] [Gmail]/All Mail selected. (Success)
+C (3): 1005 UID SEARCH ALL HEADER sender "alerts@marketrebellion.com"
+...
+
+
+1:42PM Updated with:
+print "Deleting: Market Rebellion <alerts@marketrebellion.com> messages"
+messages = gmail["[Gmail]/All Mail"]:contain_field("sender", "alerts@marketrebellion.com") * gmail["[Gmail]/All Mail"]
+messages:delete_messages()
+
+Now get:
+$ imapfilter -v
+S (3): * OK Gimap ready for requests from 24.237.217.241 il11mb716857659pjb
+C (3): 1000 CAPABILITY
+S (3): 1000 OK Thats all she wrote! il11mb716857659pjb
+C (3): 1001 LOGIN "marcilr@gmail.com" *
+S (3): 1001 OK marcilr@gmail.com authenticated (Success)
+C (3): 1002 CAPABILITY
+S (3): 1002 OK Success
+C (3): 1003 NAMESPACE
+S (3): 1003 OK Success
+Deleting specific messages from gmail INBOX...
+Deleting: Market Rebellion <alerts@marketrebellion.com> messages
+C (3): 1004 SELECT "[Gmail]/All Mail"
+S (3): 1004 OK [READ-WRITE] [Gmail]/All Mail selected. (Success)
+C (3): 1005 UID SEARCH ALL HEADER sender "alerts@marketrebellion.com"
+...
+Waiting
+
+Does not appear to complete.
+
+
+1:34PM Commented out everything except login details nmow get:
+$ imapfilter -v
+S (3): * OK Gimap ready for requests from 24.237.217.241 y20mb115377319pjt
+C (3): 1000 CAPABILITY
+S (3): 1000 OK Thats all she wrote! y20mb115377319pjt
+C (3): 1001 LOGIN "marcilr@gmail.com" *
+S (3): 1001 OK marcilr@gmail.com authenticated (Success)
+C (3): 1002 CAPABILITY
+S (3): 1002 OK Success
+C (3): 1003 NAMESPACE
+S (3): 1003 OK Success
+C (3): 1004 LOGOUT
+S (3): 1004 OK 73 good day (Success)
+$
+
+Looks good.
+
+
+Create imapfilter rule to delete message from:
+Market Rebellion <alerts@marketrebellion.com>
+
+$ imapfilter -v
+S (3): * OK Gimap ready for requests from 24.237.217.241 oj18mb633875pjb
+C (3): 1000 CAPABILITY
+S (3): 1000 OK Thats all she wrote! oj18mb633875pjb
+C (3): 1001 LOGIN "marcilr@gmail.com" *
+S (3): 1001 OK marcilr@gmail.com authenticated (Success)
+C (3): 1002 CAPABILITY
+S (3): 1002 OK Success
+C (3): 1003 NAMESPACE
+S (3): 1003 OK Success
+C (3): 1004 SELECT "INBOX"
+S (3): 1004 OK [READ-WRITE] INBOX selected. (Success)
+C (3): 1005 UID SEARCH ALL
+^Cimapfilter: killed by signal 2
+$ 
+
+
+Test imapfilter:
+$ imapfilter
+...
+^Cimapfilter: killed by signal 2
+...
+$
+
+No imapfilter rules yet so filled with ctrl-c
 
 
