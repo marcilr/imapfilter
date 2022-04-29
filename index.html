@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>IMAPFilter</title>
+
 </head>
 <body style="width:80%; vertical-align: middle;">
 
@@ -25,10 +25,74 @@ protocol are supported.
 IMAPFilter uses the Lua programming language as a configuration
 and extension language.
 
+
+<!--- ========================== CONFIGURATION ======================= --->
+<!--- ========================== CONFIGURATION ======================= --->
+<p style="margin-top:1.5cm;">
+<h2>Configuration</h2>
+
+<ol>
+  <!--- ============= 1. Backup ~/.imapfilter/config.lua ============= --->
+  <li>Backup <span style="font-family:Sans-Serif;Arial;Helvetica;">~/.imapfilter/config.lua</span>
+  if it exists:
+  <p>
+  <span style="font-family:Sans-Serif;Arial;Helvetica;">
+  $ pushd ~/.imapfilter<br>
+  ~/.imapfilter ~<br>
+  $ cp config.lua config.lua-20220103<br>
+  </span>
+
+  <!--- ============= 2. Create ~/.imapfilter directory  ============= --->
+  <li>Create <span style="font-family:Sans-Serif;Arial;Helvetica;">~/.imapfilter</span>
+directory to hold configuration file:<br>
+<p>
+<span style="font-family:Sans-Serif;Arial;Helvetica;">
+$ mkdir -p ~/.imapfilter
+</span>
+</p>
+
+  <!--- ============= 3.  ~/.imapfilter/config.lua =================== --->
+  <li>Create <span style="font-family:Sans-Serif;Arial;Helvetica;">~/.imapfilter/config.lua</span>
+      configuration file for filtering rules:
+<p>
+<span style="font-family:Sans-Serif;Arial;Helvetica;">
+$ touch ~/.imapfilter/config.lua
+</span>
+</p>
+
+  <!--- ============== 4. Configure ~/.imapfilter/config.lua ========= --->
+  <li>Add basic configuration to 
+<span style="font-family:Sans-Serif;Arial;Helvetica;">~/.imapfilter/config.lua</span>:<br>
+<span style="font-family:Sans-Serif;Arial;Helvetica;">
+options.timeout = 1200<br>
+options.create = true<br>
+options.subscribe = true<br>
+options.expunge = true<br>
+</span>
+<br>
+  <!--- ============== 5. Define imap configuration  ================ --->
+  <li>Define imap account in
+<span style="font-family:Sans-Serif;Arial;Helvetica;">~/.imapfilter/config.lua</span>:<br>
+<span style="font-family:Sans-Serif;Arial;Helvetica;">~/.imapfilter/config.lua</span>
+account1 = IMAP {<br>
+&nbsp;&nbsp;server = "imap.gmail.com",<br>
+&nbsp;&nbsp;username = "mylogin@domain.com",<br>
+&nbsp;&nbsp;password = "mypassword",<br>
+&nbsp;&nbsp;ssl = "tls1"<br>
+}<br>
+</span>
+</ol>
+
+
+<!-- =============================== SEARCH ============================== -->
+<!-- =============================== SEARCH ============================== -->
 <p style="margin-top:1.5cm;">
 <h2>Search</h2>
 imapfilter with gmail
 
+
+<!-- ================================ LINKS ============================== -->
+<!-- ================================ LINKS ============================== -->
 <p style="margin-top:1.5cm;">
 <h2>Links</h2>
 
