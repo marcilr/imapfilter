@@ -84,15 +84,177 @@ account1 = IMAP {<br>
 </ol>
 
 
-<!-- ============================ SEARCH ============================== -->
-<!-- ============================ SEARCH ============================== -->
+<!--- ============================ SEARCH ============================= --->
+<!--- ============================ SEARCH ============================= --->
 <p style="margin-top:1.5cm;">
 <h2>Search</h2>
 imapfilter with gmail
 
 
-<!-- ============================ LINKS ============================== -->
-<!-- ============================ LINKS ============================== -->
+<!--- ================= THU 20 OCT 2022 04:09:15 PM AKDT ============== --->
+<!--- ================= THU 20 OCT 2022 04:09:15 PM AKDT ============== --->
+<p style="margin-top:1.5cm;">
+<h2>Thu 20 Oct 2022 04:09:15 PM AKDT</h2>
+
+<p>
+Running imapfilter from Debian 10.13 (Buster) is throwing an
+error message:
+
+<p>
+<blockquote>
+$ imapfilter 
+imapfilter: IMAP (3): 1001 NO [AUTHENTICATIONFAILED] Invalid credentials (Failure)<br>
+imapfilter: IMAP (3): 1003 BAD Unknown command 25mb49259178pjk<br>
+imapfilter: authentication of marcilr@gmail.com@imap.gmail.com failed.<br>
+stack traceback:<br>
+	[C]: in ?<br>
+	[C]: in function 'error'<br>
+	/usr/share/imapfilter/account.lua:99: in function '_login_user'<br>
+	/usr/share/imapfilter/account.lua:59: in function 'IMAP'<br>
+	/home/marcilr/.imapfilter/config.lua:44: in main chunk<br>
+$<br>
+</blockquote>
+</p>
+
+<p>
+Try unlocking and clearing the Captcha.
+<ol>
+  <li>Acess this <a href="https://accounts.google.com/DisplayUnlockCaptcha">link</a> and click the Continue button.<br>
+    <a href="https://accounts.google.com/DisplayUnlockCaptcha">https://accounts.google.com/DisplayUnlockCaptcha</a>
+
+    <p>
+    Allow access to your Google account<br>
+    As a security precaution, Google may require you to complete this<br>
+    additional step when signing into a new device or application.<br>
+    <p>
+    To allow access, click the Continue button below.<br>
+    <p>
+      Continue
+    <p>
+      click Continue
+    </p>
+
+    <li>
+      Observe:<br>
+      Account access enabled<br>
+      Please try signing in to your Google account again from
+      your new device or application.
+
+    <li style="margin-top:0.5cm;">
+      Try imapfilter from command line again:
+
+      <p>
+        Still getting the same error message:
+        
+<blockquote>
+$ imapfilter 
+imapfilter: IMAP (3): 1001 NO [AUTHENTICATIONFAILED] Invalid credentials (Failure)<br>
+imapfilter: IMAP (3): 1003 BAD Unknown command 25mb49259178pjk<br>
+imapfilter: authentication of marcilr@gmail.com@imap.gmail.com failed.<br>
+stack traceback:<br>
+	[C]: in ?<br>
+	[C]: in function 'error'<br>
+	/usr/share/imapfilter/account.lua:99: in function '_login_user'<br>
+	/usr/share/imapfilter/account.lua:59: in function 'IMAP'<br>
+	/home/marcilr/.imapfilter/config.lua:44: in main chunk<br>
+$<br>
+</blockquote>
+      </p>
+
+      <p>
+  The password in ~/.imapfilter/config.lua is the same as
+  that which works for login via
+  <a href="http://www.gmail.com/">http://www.gmail.com/</a>
+
+  <li style="margin-top:0.5cm;">
+    'The answer is that your GMail account needs to be enabled
+    for &quot;Less Secure Apps&quot;.
+
+    <p>
+    Note: Chilkat also supports OAuth2 IMAP authentication (
+    i.e. secure apps) with GMail, and this requires an OAuth2<br>
+    access token to be obtained first.  There are examples
+    for this on example-code.com
+
+    <p>
+    To enable &quot;Less Secure Apps&quot; in your Google account,
+    go to your <a hrerf="https://myaccount.google.com/security">Google Account Security Settings at https://myaccount.google.com/security</a>
+
+    <p>
+    Scroll down and look for the “Less Secure Apps” section:
+
+    <p>
+    Less secure app access
+
+    <p>
+    To protect your account, apps and devices that use less secure
+    sign-in technology are blocked.  To keep your account secure,
+    Google will automatically turn this setting OFF if it's not
+    being used.
+    
+    <p>
+    OFF
+
+    <p>
+    Update to:
+
+    <p>
+    Allow less secure apps: ON
+     
+    <p>
+    Re-run your program.  Now it succeeds and your LastErrorText shows this:
+      
+    <p>
+    --GMail IMAP NO [AUTHENTICATIONFAILED] Invalid credentials (Failure)<br>
+    You passed the correct login/password to login to imap.gmail.com, but
+    you still get an &quot;Invalid credentials&quot; error.  What gives?<br>
+    Chilkat Tech Notes<br>
+    March 17, 2021<br>
+    <a href="https://cknotes.com/gmail-imap-no-authenticationfailed-invalid-credentials-failure/">https://cknotes.com/gmail-imap-no-authenticationfailed-invalid-credentials-failure/</a>
+
+   <li style="margin-top:0.5cm;">
+     To enable &quot;Less secure app access&quot; in gmail:<br>
+
+     <p>
+     To enable “Less Secure Apps” in your Google account, go to your
+     Google Account Security Settings<br>
+     at <a href="https://myaccount.google.com/security">https://myaccount.google.com/security</a>
+
+     <p>
+       NOTE: Observed, Thu Oct 20, 2022, that  as of May 30, 2022
+       Less secure app access was disabled for improved security.
+     </p>
+       
+   <li style="margin-top:0.5cm;">
+     From the <a href="https://manpages.ubuntu.com/manpages/impish/man5/imapfilter_config.5.html">imapfilter manpages</a> it looks like imapfilter
+     does support oauth2.<br>
+     <a href="https://manpages.ubuntu.com/manpages/impish/man5/imapfilter_config.5.html">https://manpages.ubuntu.com/manpages/impish/man5/imapfilter_config.5.html</a>
+
+     <p>
+       This page has some pretty good details:
+
+     <p>
+     Difficulty with google mail / gmail login via oauth2 example #186<br>
+     Closed<br>
+     SterlingPeet opened this issue on Aug 29, 2018 · 4 comments<br>
+     <a href="https://github.com/lefcha/imapfilter/issues/186">
+       https://github.com/lefcha/imapfilter/issues/186</a>
+
+     <p>
+     The above page references <a href="https://raw.githubusercontent.com/google/gmail-oauth2-tools/master/python/oauth2.py">oauth2.py</a> script to generate
+     OAuth2 string available at:
+
+     <p>
+       <a href="https://github.com/google/gmail-oauth2-tools/wiki/OAuth2DotPyRunThrough">https://github.com/google/gmail-oauth2-tools/wiki/OAuth2DotPyRunThrough</a>
+       
+</ol>
+
+
+
+
+
+<!--- ============================ LINKS ============================== --->
+<!--- ============================ LINKS ============================== --->
 <p style="margin-top:1.5cm;">
 <h2>Links</h2>
 
