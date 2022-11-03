@@ -41,7 +41,7 @@ secure access to gmail and mail filtering.<br>
 
   
 <ol>
-  <!--- ============= 1. Backup ~/.imapfilter/config.lua ============= --->
+  <!--- ============= 1. BACKUP ~/.imapfilter/config.lua ============= --->
   <li>
     Backup <span style="font-family:Sans-Serif;Arial;Helvetica;">~/.imapfilter/config.lua</span>
   if it exists:
@@ -50,11 +50,23 @@ secure access to gmail and mail filtering.<br>
   $ pushd ~/.imapfilter<br>
   ~/.imapfilter ~<br>
   $ cp config.lua config.lua-20221102<br>
-  </span
+  </span>
+
+  <!--- ============= VERIFY PYTHON VERSION 2.4 OR GREATER ========== --->
+  <li>
+    Verify Python version 2.4 or greater required by
+    <a href="https://github.com/google/gmail-oauth2-tools/wiki/OAuth2DotPyRunThrough">oauth2.py</a> script.
+
+    <p style="margin-top:0.5cm;">
+    $ python -V<br>
+    Python 2.7.16
+
+    <p style="margin-top:0.5cm;">
+    Looks good.
 
   <li>
     Configuration complete.<br>
-    $ popd    
+    $ popd
 
 </ol>
 
