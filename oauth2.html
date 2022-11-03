@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body style="width:80%; vertical-align: middle;">
+
+oauth2.html<br>
+Created Wed 02 Nov 2022 05:54:15 PM AKDT<br>
+Copyright (C) 2022 by Raymond E. Marcil <a href="mailto:marcilr@gmail.com">&lt;marcilr@gmail.com&gt;</a><br>
+
+
+<!--- ============================ OAUTH2 ============================ --->
+<!--- ============================ OAUTH2 ============================ --->
+<p style="margin-top:1.5cm;">
+<h2>OAuth2</h2>
+
+
+<p style="margin-top:1.5cm;">
+OAuth2 is required for secure access to gmail for access
+and mail filtering.
+
+<p style="margin-top:0.5cm;">
+See Quick Run-Through with
+<a href="https://github.com/google/gmail-oauth2-tools/wiki/OAuth2DotPyRunThrough"> oauth2.py</a> page for configuration details:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;OAuth2DotPyRunThrough<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://github.com/google/gmail-oauth2-tools/wiki/OAuth2DotPyRunThrough">https://github.com/google/gmail-oauth2-tools/wiki/OAuth2DotPyRunThrough</a>
+
+
+<!--- ========================== CONFIGURATION ======================= --->
+<!--- ========================== CONFIGURATION ======================= --->
+<p style="margin-top:1.5cm;">
+<h2>Configuration</h2>
+
+<p style="margin-top:0.5cm;">
+To configure imapfilter for oauthz access to gmail for mail filtering:
+
+  
+<ol>
+  <!--- ============= 1. Backup ~/.imapfilter/config.lua ============= --->
+  <li>
+    Backup <span style="font-family:Sans-Serif;Arial;Helvetica;">~/.imapfilter/config.lua</span>
+  if it exists:
+  <p>
+  <span style="font-family:Sans-Serif;Arial;Helvetica;">
+  $ pushd ~/.imapfilter<br>
+  ~/.imapfilter ~<br>
+  $ cp config.lua config.lua-20221102<br>
+  </span
+
+  <li>
+    Configuration complete.<br>
+    $ popd    
+
+</ol>
+
+<!--- ========================== CONFIGURATION ======================= --->
+<!--- ========================== CONFIGURATION ======================= --->
+<p style="margin-top:1.5cm;">
+<h2>Configuration</h2>
+
+<ol>
+  <!--- ============= 1. Backup ~/.imapfilter/config.lua ============= --->
+  <li>Backup <span style="font-family:Sans-Serif;Arial;Helvetica;">~/.imapfilter/config.lua</span>
+  if it exists:
+  <p>
+  <span style="font-family:Sans-Serif;Arial;Helvetica;">
+  $ pushd ~/.imapfilter<br>
+  ~/.imapfilter ~<br>
+  $ cp config.lua config.lua-20220103<br>
+  </span>
+
+  <!--- ============= 2. Create ~/.imapfilter directory  ============= --->
+  <li>Create <span style="font-family:Sans-Serif;Arial;Helvetica;">~/.imapfilter</span>
+directory to hold configuration file:<br>
+<p>
+<span style="font-family:Sans-Serif;Arial;Helvetica;">
+$ mkdir -p ~/.imapfilter
+</span>
+</p>
+
+  <!--- ============= 3.  ~/.imapfilter/config.lua =================== --->
+  <li>Create <span style="font-family:Sans-Serif;Arial;Helvetica;">~/.imapfilter/config.lua</span>
+      configuration file for filtering rules:
+<p>
+<span style="font-family:Sans-Serif;Arial;Helvetica;">
+$ touch ~/.imapfilter/config.lua
+</span>
+</p>
+
+  <!--- ============== 4. Configure ~/.imapfilter/config.lua ========= --->
+  <li>Add basic configuration to 
+<span style="font-family:Sans-Serif;Arial;Helvetica;">~/.imapfilter/config.lua</span>:<br>
+<span style="font-family:Sans-Serif;Arial;Helvetica;">
+options.timeout = 1200<br>
+options.create = true<br>
+options.subscribe = true<br>
+options.expunge = true<br>
+</span>
+<br>
+
+<!--- ============== 5. Define imap configuration  ================ --->
+<li>Define imap account in
+<span style="font-family:Sans-Serif;Arial;Helvetica;">~/.imapfilter/config.lua</span>:<br>
+<span style="font-family:Sans-Serif;Arial;Helvetica;">~/.imapfilter/config.lua</span>
+account1 = IMAP {<br>
+&nbsp;&nbsp;server = "imap.gmail.com",<br>
+&nbsp;&nbsp;username = "mylogin@domain.com",<br>
+&nbsp;&nbsp;password = "mypassword",<br>
+&nbsp;&nbsp;ssl = "tls1"<br>
+}<br>
+</span>
+
+</ol>
+
+
+
+<!--- ================= THU 20 OCT 2022 04:09:15 PM AKDT ============== --->
+<!--- ================= THU 20 OCT 2022 04:09:15 PM AKDT ============== --->
+<p style="margin-top:1.5cm;">
+<h2>Thu 20 Oct 2022 04:09:15 PM AKDT</h2>
+
+<p>
+Running imapfilter from Debian 10.13 (Buster) is throwing an
+error message:
+
+<p>
+<blockquote>
+$ imapfilter 
+imapfilter: IMAP (3): 1001 NO [AUTHENTICATIONFAILED] Invalid credentials (Failure)<br>
+imapfilter: IMAP (3): 1003 BAD Unknown command 25mb49259178pjk<br>
+imapfilter: authentication of marcilr@gmail.com@imap.gmail.com failed.<br>
+stack traceback:<br>
+	[C]: in ?<br>
+	[C]: in function 'error'<br>
+	/usr/share/imapfilter/account.lua:99: in function '_login_user'<br>
+	/usr/share/imapfilter/account.lua:59: in function 'IMAP'<br>
+	/home/marcilr/.imapfilter/config.lua:44: in main chunk<br>
+$<br>
+</blockquote>
+</p>
+
+<p>
+Try unlocking and clearing the Captcha.
+<ol>
+  <li>Acess this <a href="https://accounts.google.com/DisplayUnlockCaptcha">link</a> and click the Continue button.<br>
+    <a href="https://accounts.google.com/DisplayUnlockCaptcha">https://accounts.google.com/DisplayUnlockCaptcha</a>
+
+    <p>
+    Allow access to your Google account<br>
+    As a security precaution, Google may require you to complete this<br>
+    additional step when signing into a new device or application.<br>
+    <p>
+    To allow access, click the Continue button below.<br>
+    <p>
+      Continue
+    <p>
+      click Continue
+    </p>
+
+    <li>
+      Observe:<br>
+      Account access enabled<br>
+      Please try signing in to your Google account again from
+      your new device or application.
+
+    <li style="margin-top:0.5cm;">
+      Try imapfilter from command line again:
+
+      <p>
+        Still getting the same error message:
+        
+<blockquote>
+$ imapfilter 
+imapfilter: IMAP (3): 1001 NO [AUTHENTICATIONFAILED] Invalid credentials (Failure)<br>
+imapfilter: IMAP (3): 1003 BAD Unknown command 25mb49259178pjk<br>
+imapfilter: authentication of marcilr@gmail.com@imap.gmail.com failed.<br>
+stack traceback:<br>
+	[C]: in ?<br>
+	[C]: in function 'error'<br>
+	/usr/share/imapfilter/account.lua:99: in function '_login_user'<br>
+	/usr/share/imapfilter/account.lua:59: in function 'IMAP'<br>
+	/home/marcilr/.imapfilter/config.lua:44: in main chunk<br>
+$<br>
+</blockquote>
+      </p>
+
+      <p>
+  The password in ~/.imapfilter/config.lua is the same as
+  that which works for login via
+  <a href="http://www.gmail.com/">http://www.gmail.com/</a>
+
+  <li style="margin-top:0.5cm;">
+    'The answer is that your GMail account needs to be enabled
+    for &quot;Less Secure Apps&quot;.
+
+    <p>
+    Note: Chilkat also supports OAuth2 IMAP authentication (
+    i.e. secure apps) with GMail, and this requires an OAuth2<br>
+    access token to be obtained first.  There are examples
+    for this on example-code.com
+
+    <p>
+    To enable &quot;Less Secure Apps&quot; in your Google account,
+    go to your <a hrerf="https://myaccount.google.com/security">Google Account Security Settings at https://myaccount.google.com/security</a>
+
+    <p>
+    Scroll down and look for the “Less Secure Apps” section:
+
+    <p>
+    Less secure app access
+
+    <p>
+    To protect your account, apps and devices that use less secure
+    sign-in technology are blocked.  To keep your account secure,
+    Google will automatically turn this setting OFF if it's not
+    being used.
+    
+    <p>
+    OFF
+
+    <p>
+    Update to:
+
+    <p>
+    Allow less secure apps: ON
+     
+    <p>
+    Re-run your program.  Now it succeeds and your LastErrorText shows this:
+      
+    <p>
+    --GMail IMAP NO [AUTHENTICATIONFAILED] Invalid credentials (Failure)<br>
+    You passed the correct login/password to login to imap.gmail.com, but
+    you still get an &quot;Invalid credentials&quot; error.  What gives?<br>
+    Chilkat Tech Notes<br>
+    March 17, 2021<br>
+    <a href="https://cknotes.com/gmail-imap-no-authenticationfailed-invalid-credentials-failure/">https://cknotes.com/gmail-imap-no-authenticationfailed-invalid-credentials-failure/</a>
+
+   <li style="margin-top:0.5cm;">
+     To enable &quot;Less secure app access&quot; in gmail:<br>
+
+     <p>
+     To enable “Less Secure Apps” in your Google account, go to your
+     Google Account Security Settings<br>
+     at <a href="https://myaccount.google.com/security">https://myaccount.google.com/security</a>
+
+     <p>
+       NOTE: Observed, Thu Oct 20, 2022, that  as of May 30, 2022
+       Less secure app access was disabled for improved security.
+     </p>
+       
+   <li style="margin-top:0.5cm;">
+     From the <a href="https://manpages.ubuntu.com/manpages/impish/man5/imapfilter_config.5.html">imapfilter manpages</a> it looks like imapfilter
+     does support oauth2.<br>
+     <a href="https://manpages.ubuntu.com/manpages/impish/man5/imapfilter_config.5.html">https://manpages.ubuntu.com/manpages/impish/man5/imapfilter_config.5.html</a>
+
+     <p>
+       This page has some pretty good details:
+
+     <p>
+     Difficulty with google mail / gmail login via oauth2 example #186<br>
+     Closed<br>
+     SterlingPeet opened this issue on Aug 29, 2018 · 4 comments<br>
+     <a href="https://github.com/lefcha/imapfilter/issues/186">
+       https://github.com/lefcha/imapfilter/issues/186</a>
+
+     <p>
+     The above page references <a href="https://raw.githubusercontent.com/google/gmail-oauth2-tools/master/python/oauth2.py">oauth2.py</a> script to generate
+     OAuth2 string available at:
+
+     <p>
+       <a href="https://github.com/google/gmail-oauth2-tools/wiki/OAuth2DotPyRunThrough">https://github.com/google/gmail-oauth2-tools/wiki/OAuth2DotPyRunThrough</a>
+       
+</ol>
+
+
+
+
+
+<!--- ============================ LINKS ============================== --->
+<!--- ============================ LINKS ============================== --->
+<p style="margin-top:1.5cm;">
+<h2>Links</h2>
+
+<p>
+Difficulty with google mail / gmail login via oauth2 example #186<br>
+SterlingPeet opened this issue on Aug 29, 2018 · 4 comments<br>
+This page has a pretty darn good example of using oauth2 with imapfilter.<br>
+<a href="https://github.com/lefcha/imapfilter/issues/186">
+  https://github.com/lefcha/imapfilter/issues/186</a>
+  
+<p>
+Filtering IMAP mail with imapfilter - Raymii.org<br>
+<a href="https://raymii.org/s/blog/Filtering_IMAP_mail_with_imapfilter.html">
+https://raymii.org/s/blog/Filtering_IMAP_mail_with_imapfilter.html</a>
+
+<p>
+IMAPFilter<br>
+<a href="http://github.com/lefcha/imapfilter">
+  http://github.com/lefcha/imapfilter</a>
+
+<p>
+imapfilter for Gmail<br>
+<a href="https://iranzo.io/blog/2021/07/07/imapfilter-for-gmail/">
+https://iranzo.io/blog/2021/07/07/imapfilter-for-gmail/</a><br>
+
+<p>
+imapfilter - cleaning up your mailbox and Gmail tricks<br>
+19 Jun, 2016<br>
+Some very good details here.<br>
+<a href="https://syshero.org/2016-06-19-imapfilter-cleaning-up-your-mailbox-and/">
+https://syshero.org/2016-06-19-imapfilter-cleaning-up-your-mailbox-and/</a>&nbsp;&nbsp;&nbsp;<strong>&lt;===</strong><br>
+
+<p>
+imapfilter_config(5) - Linux man page<br>
+<a href="https://linux.die.net/man/5/imapfilter_config">
+  https://linux.die.net/man/5/imapfilter_config</a>
+
+<p>
+OAuth 2.0<br>
+&quot;OAuth 2.0 is the industry-standard protocol for authorization.
+OAuth 2.0 focuses on client developer simplicity<br>
+while providing specific authorization flows for web applications, desktop
+applications, mobile phones,<br>
+and living room devices.&quot;<br>
+<a href="https://oauth.net/2/">
+  https://oauth.net/2/</a>
+
+<p>
+Quick Run-Through with oauth2.py<br>
+OAuth2DotPyRunThrough<br>
+Jamie Nicolson edited this page on Mar 31, 2017 · 4 revisions<br>
+Has a good run through on using oauth2.py script<br>
+&quot;Use oauth2.py to create and authorize an OAuth token.&quot;<br>
+<a href="https://github.com/google/gmail-oauth2-tools/wiki/OAuth2DotPyRunThrough">https://github.com/google/gmail-oauth2-tools/wiki/OAuth2DotPyRunThrough</a>
+  
+</body>
+</html>
