@@ -22,7 +22,7 @@ and mail filtering.
 
 <p style="margin-top:0.5cm;">
 See Quick Run-Through with
-<a href="https://github.com/google/gmail-oauth2-tools/wiki/OAuth2DotPyRunThrough"> oauth2.py</a> page for configuration details:<br>
+<a href="https://github.com/google/gmail-oauth2-tools/wiki/OAuth2DotPyRunThrough"> oauth2.py</a> page<a href="#footnote1">[1]</a> for configuration details:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;OAuth2DotPyRunThrough<br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a href="https://github.com/google/gmail-oauth2-tools/wiki/OAuth2DotPyRunThrough">https://github.com/google/gmail-oauth2-tools/wiki/OAuth2DotPyRunThrough</a>
 
@@ -44,7 +44,8 @@ secure access to gmail and mail filtering.<br>
   <!--- ============= 1. BACKUP ~/.imapfilter/config.lua ============= --->
   <li>
     Backup <span style="font-family:Sans-Serif;Arial;Helvetica;">~/.imapfilter/config.lua</span>
-  if it exists:
+    if it exists:<a href="#footnote1">[1]
+      
   <p>
   <span style="font-family:Sans-Serif;Arial;Helvetica;">
   $ pushd ~/.imapfilter<br>
@@ -55,7 +56,7 @@ secure access to gmail and mail filtering.<br>
   <!--- ============= VERIFY PYTHON VERSION 2.4 OR GREATER ========== --->
   <li>
     Verify Python version 2.4 or greater required by
-    <a href="https://github.com/google/gmail-oauth2-tools/wiki/OAuth2DotPyRunThrough">oauth2.py</a> script.
+    <a href="https://github.com/google/gmail-oauth2-tools/wiki/OAuth2DotPyRunThrough">oauth2.py</a> script.<a href="#footnote1">[1]
 
     <p style="margin-top:0.5cm;">
     $ python -V<br>
@@ -66,7 +67,7 @@ secure access to gmail and mail filtering.<br>
 
   <!--- ============= DOWNLOAD oauth2.py SCRIPT ====================== --->
   <li style="margin-top:0.5cm;">
-    &quot;<a href="https://raw.githubusercontent.com/google/gmail-oauth2-tools/master/python/oauth2.py">download</a> oauth2.py from the source repository on the web&quot;<br>
+    &quot;<a href="https://raw.githubusercontent.com/google/gmail-oauth2-tools/master/python/oauth2.py">download</a> oauth2.py from the source repository on the web&quot;<a href="#footnote1">[1]<br>
     <a href="https://raw.githubusercontent.com/google/gmail-oauth2-tools/master/python/oauth2.py">https://raw.githubusercontent.com/google/gmail-oauth2-tools/master/python/oauth2.py</a>
 
     <p style="margin-top:0.5cm;">
@@ -81,7 +82,29 @@ secure access to gmail and mail filtering.<br>
     2022-11-02 18:47:57 (7.03 MB/s) - ‘oauth2.py’ saved [12616/12616]<br>
     $
 
+  <!--- ============= SET PRIVS ON SCRIPT ============================ --->
+  <li style="margin-top:0.5cm;">
+    Set full privs on the script for myself:<br>
+    $ cd ~/bin<br>
+    $ chmod 700 oauth2.py
 
+
+  <!--- ============= REGISTERING AN APPLICATION ===================== --->
+  <li style="margin-top:0.5cm;">
+    '<strong>Registering An Application</strong>
+
+    <p style="margin-top:0.5cm;">
+    To use OAuth2, you must have registered your application
+    through the Google APIs Console. Registration is explained in
+    Using OAuth 2.0 to Access Google APIs.
+
+    <p style="margin-top:0.5cm;">
+    After registering your application, go to the "API Access"
+    tab and create a Client ID. oauth2.py is designed to work
+    with the "Installed application" application type. After
+    creating a Client ID, the API Access tab should show a
+    Client ID and Client secret. You will need to supply these
+    values to oauth2.py in the next step.'<a href="#footnote1">[1]</a>
     
   <!--- ============= CONFIGURATION COMPLETE ========================= --->
   <li style="margin-top:0.5cm;">
@@ -318,6 +341,17 @@ $<br>
 <p style="margin-top:1.5cm;">
 <h2>Links</h2>
 
+<p>
+<a name="footnote1">[1]</a> OAuth2DotPyRunThroug<br>
+Jamie Nicolson edited this page on Mar 31, 2017 · 4 revisions<br>
+Quick Run-Through with oauth2.py<br>
+oauth2.py is a script and library to help developers implement
+and debug OAuth2 support in Python. Even if you're not programming
+in Python, the script can be used as a standalone utility for
+generating and authorizing OAuth tokens, and for generating OAuth2
+authentication strings from OAuth tokens.<br>
+<a href="https://github.com/google/gmail-oauth2-tools/wiki/OAuth2DotPyRunThrough">https://github.com/google/gmail-oauth2-tools/wiki/OAuth2DotPyRunThrough</a>
+  
 <p>
 Difficulty with google mail / gmail login via oauth2 example #186<br>
 SterlingPeet opened this issue on Aug 29, 2018 · 4 comments<br>
