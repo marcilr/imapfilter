@@ -11,6 +11,14 @@ Filelist
 conf/
   Configuration
 
+enable-imap.txt
+  Enable IMAP on for your Gmail account
+  Enable your Gmail account for IMAP in Exchange Online
+  Article 12/29/2021
+  2 minutes to read
+  6 contributors
+  https://learn.microsoft.com/en-us/exchange/mailbox-migration/enable-gmail-accounts-for-imap
+
 imapfilter.html
   IMAPFilter is a mail filtering utility.  It connects to
   remote mail servers using the Internet Message Access Protocol
